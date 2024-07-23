@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jara Feeds Foundation</title>
+      
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./index.css">
+      
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    </head>
+      
+  <body>
+    <!-- nav bar --> 
+   <nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-fluid justify-content-between">
+    <img src="logo_image-removebg-preview.png" alt="logo image" style="width: 4rem;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container justify-content-center" id="navbarNav">
+      <ul class="navbar-nav d-flex gap-5">
+        <li class="nav-item">
+          <a id="active" class="nav-link" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="whatwedo.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="projects.html">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="blog.html">Blog</a>
+        </li>
+      </ul>
+      <div class=" d-flex flex-wrap gap-5 justify-content-center" style="margin-left: 50px;">
+        <button type="submit" data-bs-toggle="modal" data-bs-target="#donateModal" class="btn btn-outline-success">Donate</button>
+        <button type="submit" class="btn" style="background-color: orange; color: white;" id="subscribeBtn">Subscribe</button>
+       <div class="social d-flex gap-3">
+        <a href="info.org.jarafeeds@gmail.com"><ion-icon name="mail" size="large" style="color: white;"></ion-icon></a>
+        <a href="https://www.facebook.com/profile.php?id=61561060630494"><ion-icon name="logo-facebook" size="large" style="color: white;"></ion-icon></a>
+        <a href="https://www.instagram.com/jara.feedsfoundation?igsh=eTJpaTY3ajlmYjV4"><ion-icon name="logo-instagram" size="large" style="color: white;"></ion-icon></a>
+       </div>
+      </div>
+</nav>
+    
+    <header class="p-5">
+        <div>
+            <div class="container d-flex flex-wrap justify-content-center gap-5 align-items-center">
+                <div class="card" style="max-width: 500px;">
+                    <div class="text-center">
+                        <h1 class="text-success">100% of your gift funds helps fight against <span class="text-dark">food insecurity</span> and <span class="text-dark">hunger</span> across Africa</h1>
+                        <p class="we">We're on a mission to stop food insecurity and bring food to the 703 million people living without it. You can join us. No matter how much you give, every cent funds our projects around the world.</p>
+                    </div>
+                    <div class="gap-2 d-flex">
+                        <button class="text-white btn bg-success w-50" data-bs-toggle="modal" data-bs-target="#donateModal" onclick="setDonationType('once')">GIVE ONCE</button>
+                        <button class="text-white btn w-50" style="background-color: orange;" data-bs-toggle="modal" data-bs-target="#donateModal" onclick="setDonationType('monthly')">GIVE MONTHLY</button>
+                    </div>
+                    <div>
+                        <hr>
+                        <p class="text-center">Your <span style="border-bottom: 1px solid orange; color: orange;"><b>&#8358;5,000</b></span> monthly donation can give <span style="border-bottom: 1px solid orange; color: orange;"><b>120</b></span> people food every year.</p>
+                    </div>
+                </div>
+                <div class="card image-container" style="max-width: 500px;">
+                    <img src="./mother and child.png" class="card-img" alt="..." class="img-fluid w-25">
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Cookie Consent Modal -->
+<div class="modal fade" id="cookieConsentModal" tabindex="-1" aria-labelledby="cookieConsentLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cookieConsentLabel">Cookie Consent</h5>
+          </div>
+          <div class="modal-body text-center">
+              <p>By clicking "Accept All Cookies", you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts. <a href="#">More Information</a></p>
+          </div>
+          <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-secondary" id="cookieSettings">Cookie Settings</button>
+              <button type="button" class="btn" id="rejectAll" style="background-color: orange;">Reject All</button>
+              <button type="button" class="btn btn-success" id="acceptAll">Accept All Cookies</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+    <!-- modal for subscriptiopn -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header justify-content-between">
+                  <h5 class="modal-title" id="subscribeModalLabel">Subscribe to our Newsletter</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background-color: orange;">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form id="subscribeForm">
+                      <div class="form-group">
+                          <label for="firstName">First Name:</label>
+                          <input type="text" class="form-control" id="firstName" name="firstName" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="lastName">Last Name:</label>
+                          <input type="text" class="form-control" id="lastName" name="lastName" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email:</label>
+                          <input type="email" class="form-control" id="email" name="email" required>
+                      </div>
+                      <button type="submit" class="btn btn-success mt-3">Subscribe</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+           <!-- Modal for Donation -->
+           <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="donateModalLabel">Donate</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="donationForm">
+                            <div class="form-group">
+                                <label for="amount">Amount (₦)</label>
+                                <input type="number" class="form-control" id="amount" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="donation-type">Donation Type</label>
+                            <select class="form-control" id="donation-type" onchange="setDonationType(this.value)">
+                                <option value="once">Once</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="weekly">Weekly</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                            <label>Payment Method</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod1" value="creditCard" checked>
+                                <label class="form-check-label" for="paymentMethod1">Credit Card</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod2" value="paypal">
+                                <label class="form-check-label" for="paymentMethod2">PayPal</label>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                            </div>
+                            <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="giftAid">
+                            <label class="form-check-label" for="giftAid">Enable Gift Aid</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Donate</button>
+                            <div class="spinner-border text-primary" role="status" id="loadingSpinner" style="display: none;">
+                            <span class="sr-only"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <main>
+     <div class="text-center p-5" style="background-color: #faf7f0;" >
+      <h3 class="text-success">Our Work</h3>
+      <h2 class="p-2">Sustainable work is locally‑led</h2>
+      <p class="p-3 fs-5 text-body-secondary">We work exclusively with local partners who build sustainable, community-owned water projects. Our partners also facilitate projects to protect everyone’s long-term health.</p>
+     </div>
+     <div class="text-center p-5 bg-dark">
+      <h3 class="text-success">Our Impact</h3>
+      <div class="d-flex justify-content-center align-items-center gap-3 p-5 text-white" style="gap: 10rem;">
+          <div>
+              <h2 id="projects" class="text-white">0</h2>
+              <p>PROJECTS FUNDED</p>
+          </div>
+          <div>
+              <h2 id="countries" class="text-white">0</h2>
+              <p>COUNTRIES</p>
+          </div>
+          <div>
+              <h2 id="people" class="text-white">0</h2>
+              <p>PEOPLE SERVED</p>
+          </div>
+      </div>
+  </div>
+     <div class="text-center p-5" style="background-color: orange;">
+      <h3 class="text-success">Give With Confidence</h3>
+      <p class="text-white fs-5 p-3">All of our operational expenses are funded by a private  community of donors called <br> <span class="text-success fs-4">The well </span> so you can trust that 100% of your donation goes directly to providing hunger solutions. <br> But we don’t stop there.
+      </p>
+      <p class="text-white fs-5 p-3">From our commitment to equipping local partners, to our tech, to the environmental <br> sustainability of our projects, “good enough” is never good enough for us. We’re setting <br> new standards for transparency and innovation, and these companies and organizations agree.</p>
+      <div class="container my-4">
+        <div class="d-flex  justify-content-center align-items-center gap-5">
+          <div class="image-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F6a20b9a85d304b9c818cf9eb76577824" class="img-fluid" alt="Image 1">
+          </div>
+          <div class="image-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F176ee96fc76a4df4a3a76da5a841384d" class="img-fluid" alt="Image 2">
+          </div>
+          <div class="image-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F06cb9580da2e490ab2ee05f919683671" class="img-fluid" alt="Image 3" style="width: 9rem;">
+          </div>
+          <div class="image-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F049c5daf454b433792cb3f6e6302b334" class="img-fluid" alt="Image 4">
+          </div>
+        </div>
+     </div>
+     
+    </div>
+   <div class="p-5 bg-white">
+    <div class="text-center">
+      <h3 class="text-success">Together, We Can End The Food Crisis</h3>
+        <p class="fs-4">Here is how you can take action today ;</p>
+    </div>
+    <div class="container d-flex flex-wrap justify-content-center gap-3">
+       <div class="text-center p-2">
+        <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F30a1c5e25a334bf7a427005de3affb7c" alt="" class="mt-3">
+        <h4 class="p-2 m-2">Join The Spring</h4>
+        <p class="text-body-secondary p-3">The Spring is a passionate community of 60,000+ supporters who <br> bring food to rural communities every month.</p>
+        <p class="p-3"><b>A &#8358;5,000 monthly gift provides good food for a new family every year.</b></p>
+        <button type="submit" class="btn mb-2" style="background-color: orange;" >Give Monthly</button>
+      </div>
+      <div class="image-container">
+        <img src="https://media.istockphoto.com/id/619643870/photo/hungry-african-children-asking-for-food-africa.jpg?s=612x612&w=0&k=20&c=HuSbhCK-BNFVSQsVfSa63gehixkKAfRak2HmQYw7mhY=" alt="" class="img-fluid ">
+      </div>
+       </div>
+   </div>
+   <div class="text-center p-5" style="background-color: #f8eed3;">
+    <h3 class="text-success">How We Work</h3>
+    <p class="text-body-secondary fs-5 p-3">We want you to know exactly how and where your donation is being used. So from the beginning, <br> we’ve kept a few promises.
+    </p>
+    <div class="card-group">
+      <div class="card">
+        <div class="image-containers">
+          <img src="food vector.png" class="card-img-top img-fluid" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">We give 100%</h5>
+          <p class="card-text">100% of the money donated to Jara Feed Foundation goes directly to funding ending hunger  projects. Private donors cover our operating costs, which means every penny of every dollar can go where it’s needed most.</p>
+        </div>
+      </div>
+      <div class="card">
+       <div class="image-containers">
+         <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F4c74eef996654404b66a6ecc59719f00" class="card-img-top" alt="...">
+       </div>
+        <div class="card-body">
+          <h5 class="card-title">We prove it</h5>
+          <p class="card-text">We don’t expect you to take our word for it. Our next-level commitment to tracking and transparency means we don’t just tell you you’re having an impact. We show you, with GPS coordinates and photos of the exact project(s) you’ve helped fund.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image-containers">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F5a41bf2d116e4a32b0ffef63e94e7d4c" class="card-img-top img-fluid" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">We deliver</h5>
+          <p class="card-text">Food insecurity affects millions of people around the world, leading to malnutrition, health problems, and a cycle of poverty that is hard to break. We believe that by tackling hunger head-on, we can make a significant impact on individuals' lives and contribute to the overall well-being of our communities to deliver a life worth-living.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image-containers">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2F2fe4147bb8c843bb8ebba475c8973899%2F0150d0c3441e4b4799d639e5e9aade92" class="card-img-top img-fluid" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">We think local - and long-term</h5>
+          <p class="card-text">We don’t just drop in, provide foods for the needy and disappear. When we provide food for a community, we want the impact to be for good — which means we work closely with local partners, remaining invested in the integrity of projects for the long haul</p>
+        </div>
+      </div>
+    </div>
+   </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer text-white bg-success">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h5 class="text-white">Add Impact To Your Inbox</h5>
+            <form id="addImpact" class="form-inline justify-content-center mt-3">
+              <input type="text" class="form-control mb-2 mr-sm-2" placeholder="First name">
+              <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Last name">
+              <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Email">
+              <button type="submit" class="btn mb-2" style="background-color: orange;" >Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="row text-center text-md-left">
+          <div class="col-md-3 mb-4">
+            <h5>Home</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Give</a></li>
+              <li><a href="index.html">Our work</a></li>
+              <li><a href="index.html">Our impact</a></li>
+              <li><a href="index.html">Give with confidence</a></li>
+              <li><a href="index.html">Take action</a></li>
+              <li><a href="index.html">How we work</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h5>What we do</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our mission</a></li>
+              <li><a href="#">Our Vision</a></li>
+              <li><a href="#">Uniqueness</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h5>Projects</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">FoodSecurityMatters</a></li>
+              <li><a href="#">Farmers' Con</a></li>
+              <li><a href="#">FoodForAll</a></li>
+              <li><a href="#">FeedwithJara</a></li>
+              <li><a href="#">HungerFree9ja</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h5>Blog</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">What we have to say</a></li>
+              <li><a href="#">Newsfeed</a></li>
+              <li><a href="#">Their Story</a></li>
+              <li><a href="#">The core team</a></li>
+              <li><a href="#">Help Center</a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div><hr>
+      <div class=" container-fluid">
+        <div class="d-flex align-items-center justify-content-center gap-3">
+          <a href="info.org.jarafeeds@gmail.com"><ion-icon name="mail" size="large"></ion-icon></a>
+          <a href="https://www.facebook.com/profile.php?id=61561060630494"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
+          <a href=""><ion-icon name="logo-twitter" size="large"></ion-icon></a>
+          <a href="https://www.instagram.com/jara.feedsfoundation?igsh=eTJpaTY3ajlmYjV4"><ion-icon name="logo-instagram" size="large"></ion-icon></a>
+          <a href=""><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
+          <a href=""><ion-icon name="logo-youtube" size="large"></ion-icon></a>
+        </div><hr>
+        <div class="text-center">
+          <p>Jara feeds Foundation is a non-profit organization.</p>
+          <p>feeding hope ending hunger!</p>
+          <p class="">© 2024 Your Feeds Foundation. All rights reserved.</p>
+            <p class=""><a href="#">Privacy Policy</a> • <a href="#">Get our emails</a></p>
+            <small><ion-icon name="lock-closed-outline"></ion-icon> This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.</small>
+        </div>
+      </div>
+      <button id="scrollTopBtn" onclick="scrollToTop()"><img src="arrow_upward_50dp_F19E39_FILL0_wght400_GRAD0_opsz48.png" alt="" class="align-item-center justify-content-center" style="width: 30px;"></button>
+    </footer>
+
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap JS (v4) -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <!-- Ionicons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- Custom JavaScript -->
+        <script src="./index.js"></script>
+  </body>
+</html>

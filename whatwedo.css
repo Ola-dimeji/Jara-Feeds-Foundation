@@ -1,0 +1,134 @@
+.navbar{
+  background-color: rgba(0, 0, 0, 0.5) ;
+  font-family: "Wittgenstein", serif;
+  font-optical-sizing: auto;
+  font-weight: 94px;
+  font-style: normal;
+}
+ h3{font-family: "wittigensten", serif;
+  color: green;
+ }
+ a{text-decoration: none;
+  color: white;
+}
+ .nav-link:hover{
+  border-top: 2px solid green;
+  border-bottom: 2px solid green;
+}
+
+#active {
+  color: orange;
+}
+#max{ min-width: auto;}
+#red{
+  flex: 1 1 50%; 
+  max-width: 500px;}
+body {
+  --pagePadding: 4rem;
+  --sectionMargin: 2rem;
+} 
+.footer {
+  padding: 40px 0;
+}
+.footer a {
+  text-decoration: none;
+  color: white;
+}
+.footer a:hover {
+  text-decoration: underline;
+  color: orange;
+}
+
+  #scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background-color: #1fad26;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 50px;
+}
+
+#scrollTopBtn:hover {
+    background-color: rgb(28, 94, 22);
+}
+/* Custom styles for the modal */
+.modal-header {
+  background-color: #f8f9fa;
+}
+
+.modal-title {
+  color: #333;
+}
+
+.modal-body p {
+  margin-bottom: 20px;
+}
+
+.modal-footer .btn {
+  margin: 5px;
+}
+
+.teamsectionbody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.team-section {
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#image-container {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.member {
+  max-width: 100%;
+  display: none;
+}
+
+.member.active {
+  display: block;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.nav-btn.left {
+  left: -50px;
+}
+
+.nav-btn.right {
+  right: -50px;
+}
