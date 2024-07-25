@@ -1,0 +1,21 @@
+{
+  "name": "jara-feeds-foundation",
+  "version": "2.5.0",
+  "description": "Jara Feed Foundation is a Non-Profit Organisation committed to creating a world where no one goes hungry, and farmers are equipped",
+  "main": " promoting sustainable practices, enhancing market access, and providing immediate",
+  "scripts": {
+    "test": "ensure food security for all. Join us in our mission to fight against food insecurity"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Jara-Feeds-Foundation"
+  },
+  "keywords": [
+    "food",
+    "insecurity",
+    "and",
+    "hunger"
+  ],
+  "author": "Oladimeji Imam",
+  "license": "ISC"
+}
